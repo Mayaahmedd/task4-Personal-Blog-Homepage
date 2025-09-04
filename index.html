@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Personal Blog Homepage</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="theme.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo">
+           <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+    <circle cx="24" cy="24" r="22" fill="#ffc400" stroke="#222" stroke-width="2"/>
+    <ellipse cx="17" cy="22" rx="4" ry="6" fill="white"/>
+    <ellipse cx="31" cy="22" rx="4" ry="6" fill="white"/>
+    <circle cx="17" cy="22" r="1.5" fill="#222"/>
+    <circle cx="31" cy="22" r="1.5" fill="#222"/>
+    <path d="M24 28 Q24 34 30 34" stroke="#222" stroke-width="2" fill="none"/>
+  </svg> 
+     
+      </div>
+      <h1>My Personal Blog</h1>
+       <div class="subtitle">Stories, code, and adventures</div>
+      <button id="dark-mode-toggle" class="cta-btn" style="position:absolute;top:20px;right:20px;">🌙</button>
+    </header>
+    <section class="blog-controls">
+      <input type="text" id="search-input" placeholder="Search posts..." />
+      <select id="category-select">
+        <option>All</option>
+        <option>Tech</option>
+        <option>Travel</option>
+        <option>Food</option>
+         <option>Education</option>
+         <option>Lifestyle</option>
+     </select>
+      <select id="sort-select" class="cta-btn" style="background:#fff; color:#222;">
+        <option value="date">Sort by Date</option>
+        <option value="title">Sort by Title</option>
+      </select>
+    </section>
+    <section class="blog-posts" id="posts-section"></section>
+    <section class="pagination" id="pagination-section"></section>
+  </div>
+  <div id="modal" class="modal">
+    <div class="modal-content" id="modal-content"></div>
+  </div>
+  <script src="page.js"></script>
+</body>
+</html>

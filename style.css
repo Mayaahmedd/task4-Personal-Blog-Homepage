@@ -1,0 +1,308 @@
+:root {
+  --elevvo-yellow: #ffc400;
+  --mint-green: #c7e313;
+  --dark-green: #222;
+  --bg-dark: #232526;
+  --bg-dark2: #414345;
+  --text-light: #fff;
+  --card-bg: #232526;
+  --border: #333;
+}
+
+body {
+  font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(120deg, var(--bg-dark) 0%, var(--bg-dark2) 100%);
+  color: var(--text-light);
+  min-height: 100vh;
+  line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
+}
+
+.dark-mode {
+  background: linear-gradient(120deg, #222 0%, #333 100%);
+  color: #eee;
+}
+
+.container, .blog-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.header, .blog-header {
+  background: linear-gradient(120deg, var(--bg-dark) 0%, var(--elevvo-yellow) 100%);
+  color: var(--text-light);
+  text-align: center;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  position: relative;
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px auto;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #fff;
+  border: 4px solid var(--elevvo-yellow);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.app-name {
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: var(--elevvo-yellow);
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  margin: 1rem 0 2rem 0;
+  color: #fff;
+}
+
+#dark-mode-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: var(--elevvo-yellow);
+}
+
+.blog-controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+#search-input, #category-select, #sort-select {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--dark-green);
+  min-width: 180px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  transition: background 0.2s, color 0.2s;
+}
+
+#search-input:focus, #category-select:focus, #sort-select:focus {
+  outline: none;
+  border-color: var(--elevvo-yellow);
+}
+
+.blog-posts {
+  min-height: 200px;
+}
+
+.features-grid, .posts-grid {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.feature-card, .post-card {
+  background: var(--card-bg);
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  padding: 2rem 1.5rem;
+  flex: 1 1 220px;
+  min-width: 220px;
+  max-width: 300px;
+  text-align: center;
+  border: 1px solid var(--border);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.feature-card:hover, .post-card:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.post-card img, .feature-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.post-content, .feature-card > div {
+  padding: 0;
+}
+
+.post-content h2, .feature-card h2 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  color: var(--elevvo-yellow);
+}
+
+.post-date, .post-category, .post-author {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 0.95rem;
+  color: var(--elevvo-yellow);
+}
+
+.no-posts {
+  text-align: center;
+  color: #fff;
+  background: var(--card-bg);
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  margin: 2rem auto;
+  max-width: 350px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+
+.cta-btn, .pagination button {
+  background: var(--elevvo-yellow);
+  color: var(--dark-green);
+  padding: 0.75rem 2rem;
+  border-radius: 999px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.cta-btn:hover, .pagination button:hover {
+  background: #ffe066;
+  color: #000;
+}
+
+.pagination {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.pagination button.active {
+  background: var(--elevvo-yellow);
+  color: var(--dark-green);
+}
+
+.fade-in {
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.96);}
+  to { opacity: 1; transform: scale(1);}
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.show {
+  display: flex;
+  animation: fadeIn 0.3s;
+}
+
+.modal-content {
+  background: var(--card-bg);
+  color: var(--text-light);
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90vw;
+  padding: 20px;
+  position: relative;
+  animation: fadeIn 0.3s;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+}
+
+.dark-mode .modal-content {
+  background: #333;
+  color: #eee;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px; right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--elevvo-yellow);
+}
+
+.modal-content img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.modal-body {
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .features-grid, .posts-grid {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  .container, .blog-container {
+    padding: 2rem 0.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .header, .blog-header {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+  .app-name {
+    font-size: 2rem;
+  }
+  .features-grid, .posts-grid {
+    gap: 1rem;
+  }
+  .feature-card, .post-card {
+    min-width: 0;
+    max-width: 100%;
+    padding: 1.2rem 0.7rem;
+  }
+  .modal-content {
+    padding: 10px;
+    max-width: 95vw; 
+  }
+}
