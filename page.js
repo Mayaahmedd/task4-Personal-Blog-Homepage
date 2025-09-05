@@ -120,7 +120,9 @@ const darkModeToggle = document.getElementById("dark-mode-toggle");
 function filterPosts() {
   let filtered = postsData.filter(post => {
     const matchesCategory = currentCategory === "All" || post.category === currentCategory;
-    const matchesSearch = post.title.toLowerCase().includes(currentSearch.toLowerCase());
+    const searchTerm = currentSearch.toLowerCase();
+    const matchesSearch = post.title.toLowerCase().includes(searchTerm) || 
+                         post.description.toLowerCase().includes(searchTerm);
     return matchesCategory && matchesSearch;
   });
 
@@ -140,10 +142,17 @@ function renderPosts() {
 
   postsSection.innerHTML = "";
   if (paginated.length === 0) {
-    postsSection.innerHTML = `<div class="no-posts">No posts found.</div>`;
+    postsSection.innerHTML = `<div class="no-posts">No posts found matching your criteria.</div>`;
     paginationSection.innerHTML = "";
     return;
   }
+
+  // Add results count
+  const resultsInfo = document.createElement("div");
+  resultsInfo.className = "results-info";
+  resultsInfo.style.cssText = "text-align: center; margin-bottom: 1rem; color: var(--elevvo-yellow); font-size: 0.9rem;";
+  resultsInfo.textContent = `Showing ${paginated.length} of ${filtered.length} posts`;
+  postsSection.appendChild(resultsInfo);
 
   const grid = document.createElement("div");
   grid.className = "posts-grid";
